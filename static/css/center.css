@@ -1,0 +1,472 @@
+body {
+	background: #f7f7f7;
+	font: 400 1em/1.5 PingFang SC, Lantinghei SC, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei;
+}
+
+
+
+/* 导航条 */
+.head {
+	height: 60px;
+	width: 100%;
+	background: #009688;
+
+}
+
+.head-nav {
+	width: 30%;
+	height: 60px;
+	position: absolute;
+	left: 10%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.head-nav li {
+	width: 33%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.head-nav li:nth-child(n+2):hover {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.head-nav li a {
+	font-size: 16px;
+	color: #fff;
+}
+
+/* 导航条-用户登录 */
+.head-user {
+	/* width: 100px; */
+	position: absolute;
+	right: 10%;
+	line-height: 60px;
+	text-align: center;
+}
+
+.head-user a {
+	color: #fff;
+}
+
+/* 导航条-用户登录-弹框 */
+.head-brand {
+	width: 100px;
+	height: 120px;
+	margin-top: 10px;
+	background: #fff;
+	border-radius: 10px;
+	line-height: 60px;
+	text-align: center;
+	display: none;
+	position: relative;
+	z-index: 3;
+}
+
+.head-brand li {
+	height: 30px;
+}
+
+.head-brand li a {
+	color: black;
+}
+
+/* 中间内容 */
+.middle {
+	position: relative;
+	height: 800px;
+	width: 100%;
+	margin-top: 20px;
+
+}
+
+.article {
+	position: absolute;
+	left: 10%;
+	width: 10%;
+	height: 500px;
+
+
+}
+
+.article li {
+	margin-top: 10px;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.article li a {
+	width: 105px;
+	height: 30px;
+	margin: 0 auto;
+	font-size: 14px;
+	font-weight: 400;
+	color: #666;
+	display: block;
+	margin-top: 5px;
+}
+
+.article li:first-child a {
+
+	width: 100%;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	color: #000;
+}
+
+/* 可修改界面样式 */
+.section {
+	position: absolute;
+	right: 10%;
+	width: 60%;
+}
+
+.section-head {
+
+	padding: 20px;
+	height: 150px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+}
+
+.section-head-info {
+	position: relative;
+	height: 110px;
+	width: 50%;
+	line-height: 110px;
+	border-right: 1px solid #999;
+}
+
+.section-head-info img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+.section-head-info p {
+	position: absolute;
+	left: 130px;
+	top: 25px;
+	width: 50%;
+	display: inline-block;
+	height: 30px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 30px;
+
+}
+
+.section-head-info-text {
+	margin-top: 30px;
+}
+
+.section-head ul {
+	height: 110px;
+	width: 50%;
+	display: flex;
+}
+
+.section-head ul li {
+	width: 33%;
+	height: 110px;
+	text-align: center;
+	line-height: 50px;
+	border-right: 1px solid #999;
+}
+
+.section-head-red {
+	color: red;
+	font-size: 12px;
+}
+
+.section-head span {
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+.section-head-green {
+	color: green;
+	font-size: 12px;
+}
+
+.section-head-orange {
+	color: orange;
+	font-size: 12px;
+}
+
+
+.section-middle {
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px;
+}
+
+.layui-table tr th,
+td {
+	/* text-align: center; */
+}
+
+.foot {
+	position: absolute;
+	top: 1200px;
+
+	width: 100%;
+}
+
+.foot p {
+	text-align: center;
+	width: 100%;
+	font-size: 12px;
+	color: #666;
+}
+
+.foot p a {
+	text-decoration: none;
+	color: #666;
+}
+
+.foot p img {
+	height: 30px;
+	margin-top: 5px;
+}
+
+.foot-top {
+	display: flex;
+	margin-bottom: 40px;
+
+}
+
+.foot-top-nav {
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.foot-top-nav li {
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.foot-top-nav li a {
+	font-size: 12px;
+	color: #999;
+}
+
+.foot-connect {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 50%;
+}
+
+/* 订单详情界面的样式 */
+.order-nav {
+	margin-top: 30px;
+	display: flex;
+	width: 100%;
+	height: 100px;
+	justify-content: space-around;
+	align-items: center;
+	background: #fff;
+}
+.order-nav li {
+	text-align: center;
+	width: 33%;
+	height: 40px;
+	color: #999;
+	font-size: 14px;
+	border-bottom: 1px solid #999;
+}
+
+	.order-text {
+		margin-top: 20px;
+		height: 100px;
+		display: flex;
+		padding: 10px;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fefdee;
+		border: 1px solid #f8e5bb;
+		border-radius: 10px;
+	}
+	.order-text p {
+		color: #333;
+		font-size: 16px;
+		
+	}
+		.order-text p span {
+		color: #999;
+		font-size: 14px;
+		display: inline-block;
+		margin-top: 3px;
+		
+	}
+	.order-text button {
+		background: red;
+		color: #fff;
+		border: 0;
+		cursor: pointer;
+		width: 100px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 4px;
+	}
+	.order-tab {
+		margin-top: 20px;
+		background: #fff;
+	}
+	.order-tab-head {
+		position: relative;
+		height: 60px;
+		padding: 10px;
+		line-height: 50px;
+	}
+	.order-tab-head img {
+		height: 60px;
+	}
+	.order-tab-head p {
+		position: absolute;
+		top: 5px;
+		margin-left: 20px;
+		display: inline-block;
+	}
+	.order-tab-head p:nth-child(3) {
+		margin-top: 30px;
+		color: #999;
+		width: 40%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 14px;
+		
+	}
+	.order-cn {
+		width: 100%;
+		display: flex;
+	}
+	.order-left {
+		width: 60%;
+	}
+	.order-right {
+		width: 40%;
+		padding: 5px;
+		
+	}
+	.order-right p {
+		font-size: 14px;
+		letter-spacing: 1px;
+		/* height: 35px; */
+		line-height: 35px;
+	}
+	.layui-input-block {
+		text-align: center;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		
+	}
+	.layui-input-block span {
+		color: red;
+		font-size: 24px;
+		font-weight: 700;
+	}
+	
+	
+	
+	/* 地址修改样式 */
+	
+	.layui-form input[type=radio] {
+		display: block;
+	}
+	.layui-input-inline {
+		display: flex;
+		align-items: center;
+		
+		height: 38px;
+	}
+	.layui-form-item {
+		width: 700px;
+	}
+	
+	.layui-form-item .layui-input-inline {
+		width: 500px;
+	}
+	
+	/* 个人资料样式 */
+	.per-data {
+		width: 40%;
+		padding: 5px;
+		
+	}
+	.per-data p {
+		font-size: 14px;
+		letter-spacing: 1px;
+		height: 35px;
+		line-height: 35px;
+	}
+	/*个人资料图片样式*/
+	.per-data img {
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	/* 评论页面 */
+	.com {
+		margin-top: 20px;
+		width: 100%;
+		min-height: 100px;
+		position: relative;
+	}
+	.com-head {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.com-head img {		
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+	}
+	.com-name {
+		position: absolute;
+		left: 110px;
+		top: 10px;
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.com-time {
+		position:absolute;
+		bottom: -30px;
+		right: 0;
+		color: #999;
+		font-size: 12px;
+	}
+	.com-text {
+		position: absolute;
+		top: 35px;
+		left: 110px;
+		width: 80%;
+		height: 80px;
+		overflow: hidden;
+		text-indent: 24px;
+		letter-spacing: 1px;
+	}

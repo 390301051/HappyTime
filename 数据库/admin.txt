@@ -1,0 +1,140 @@
+/*
+MySQL Data Transfer
+Source Host: localhost
+Source Database: campus-takeout
+Target Host: localhost
+Target Database: campus-takeout
+Date: 2019/1/16 17:24:13
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `aid` int(11) NOT NULL AUTO_INCREMENT COMMENT '管理员id',
+  `aname` char(12) NOT NULL COMMENT '管理员用户名',
+  `apasswd` char(32) NOT NULL COMMENT '管理员密码',
+  PRIMARY KEY (`aid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `oid` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单id',
+  `pname` varchar(2000) NOT NULL COMMENT '商品名',
+  `oprice` char(32) NOT NULL COMMENT '品商价格',
+  `address` varchar(1000) NOT NULL COMMENT '下单地址',
+  `ordertime` datetime NOT NULL COMMENT '下单时间',
+  `tips` varchar(100) DEFAULT NULL COMMENT '备注信息',
+  `phonenum` char(20) NOT NULL COMMENT '订单客户',
+  PRIMARY KEY (`oid`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for products
+-- ----------------------------
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品id',
+  `pname` char(50) NOT NULL COMMENT '商品名',
+  `price` int(20) NOT NULL COMMENT '商品价格',
+  `pdescribe` varchar(2000) NOT NULL COMMENT '商品描述',
+  `grade` float DEFAULT NULL COMMENT '评分',
+  `imgsrc` varchar(2000) DEFAULT NULL COMMENT '图片地址',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1表示正常2表示删除',
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for shoppingcart
+-- ----------------------------
+DROP TABLE IF EXISTS `shoppingcart`;
+CREATE TABLE `shoppingcart` (
+  `scid` int(11) NOT NULL AUTO_INCREMENT COMMENT '购物车主键',
+  `pname` char(40) NOT NULL COMMENT '商品名称',
+  `sunitprice` char(32) NOT NULL COMMENT '品商单价',
+  `totalprice` char(32) NOT NULL COMMENT '总结',
+  PRIMARY KEY (`scid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `username` char(20) NOT NULL COMMENT '用户名',
+  `userpasswd` char(32) NOT NULL COMMENT '用户密码',
+  `regtime` datetime NOT NULL COMMENT '注册时间',
+  `phonenum` char(11) NOT NULL COMMENT '用户电话',
+  `address` char(100) DEFAULT NULL COMMENT '用户地址',
+  `head` varchar(1000) DEFAULT 'http://localhost:81/uploads/1547605026969_067597.jpeg' COMMENT '头像地址',
+  `natur` varchar(1000) NOT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for usertalk
+-- ----------------------------
+DROP TABLE IF EXISTS `usertalk`;
+CREATE TABLE `usertalk` (
+  `tid` int(11) NOT NULL AUTO_INCREMENT COMMENT '评论id',
+  `username` char(32) NOT NULL COMMENT '用户名',
+  `about` varchar(8000) NOT NULL COMMENT '评论内容',
+  `talktimes` datetime NOT NULL COMMENT '评论发表时间',
+  `head` varchar(2000) NOT NULL DEFAULT 'http://localhost:81/uploads/1547605026969_067597.jpeg' COMMENT '头像信息',
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records 
+-- ----------------------------
+INSERT INTO `admin` VALUES ('1', 'jack', '123456');
+INSERT INTO `admin` VALUES ('2', 'rose', '654321');
+INSERT INTO `admin` VALUES ('3', 'admin', '123');
+INSERT INTO `orders` VALUES ('19', '%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D---1%E4%BB%BD---25%E5%85%83,%E7%B3%96%E9%86%8B%E9%87%8C%E8%84%8A---2%E4%BB%BD---56%E5%85%83,%E9%9D%92%E6%A4%92%E5%9B%9E%E9%94%85%E8%82%89---1%E4%BB%BD---30%E5%85%83', '111', '林荫中街熙和园', '2019-01-16 12:58:51', '', '18428341353');
+INSERT INTO `orders` VALUES ('20', '%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D---1%E4%BB%BD---25%E5%85%83,%E5%B9%B2%E9%94%85%E6%8E%92%E9%AA%A8---3%E4%BB%BD---96%E5%85%83', '121', '林荫中街熙和园', '2019-01-16 12:59:29', '', '18428341353');
+INSERT INTO `orders` VALUES ('21', '%E9%9D%92%E6%A4%92%E7%9A%AE%E8%9B%8B---1%E4%BB%BD---15%E5%85%83,%E8%8A%B9%E8%8F%9C%E7%89%9B%E8%82%89%E4%B8%9D---1%E4%BB%BD---25%E5%85%83', '40', '成都理工大学', '2019-01-16 13:43:33', '', '17786592486');
+INSERT INTO `orders` VALUES ('22', '%E7%B3%96%E9%86%8B%E9%87%8C%E8%84%8A---2%E4%BB%BD---56%E5%85%83,%E9%9D%92%E6%A4%92%E5%9B%9E%E9%94%85%E8%82%89---2%E4%BB%BD---60%E5%85%83,%E9%B1%BC%E9%A6%99%E8%8C%84%E5%AD%90---2%E4%BB%BD---60%E5%85%83,%E5%B9%B2%E9%94%85%E6%8E%92%E9%AA%A8---3%E4%BB%BD---96%E5%85%83,%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81---2%E4%BB%BD---70%E5%85%83,%E5%B9%B2%E9%94%85%E9%B8%A1---2%E4%BB%BD---70%E5%85%83', '412', '成都理工', '2019-01-16 15:58:17', '。。。。理论基础', '123');
+INSERT INTO `products` VALUES ('1', '鱼香肉丝', '25', '有咸甜酸辣鲜香等口味', '4.1', 'https://fuss10.elemecdn.com/c/e5/927ee6d866d4bf1c00db67dc04fd3jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('2', '糖醋里脊', '28', '经典汉族名菜', '4.2', 'https://fuss10.elemecdn.com/4/a1/bd764a717043a5b30579ca158fca9jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('3', '青椒回锅肉', '30', '香气浓郁肥而不腻', '3.9', 'https://fuss10.elemecdn.com/c/ac/588c0810c4639c5abb1b32db834e5jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('4', '鱼香茄子', '30', '汉族特色佳肴', '4.2', 'https://fuss10.elemecdn.com/1/49/997cd272d8b14de18f306082e4c5ejpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('5', '干锅排骨', '32', '排骨酥烂色泽金红美食', '4.5', 'https://fuss10.elemecdn.com/9/f6/6e05ae83a45288ce09ef6b16b9dccjpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('6', '宫保鸡丁', '35', '闻名中外特色传统名菜', '4', 'https://fuss10.elemecdn.com/e/b2/8e1180a8f91d7001d6c2b31c2d67cjpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('7', '干锅鸡', '35', '食者啖之难忘的川菜', '4.8', 'https://fuss10.elemecdn.com/f/1e/37b7eb2dd1107b506be2a85280e91jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('8', '麻婆豆腐', '15', '麻辣口味家常菜', '4.4', 'https://fuss10.elemecdn.com/d/ae/8cd6a101d74b3641c4bb2fe781d01jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('9', '蒜苔肉丝', '28', '可预防口腔上火的发生', '3.6', 'https://fuss10.elemecdn.com/d/66/5bf8fd726b590a8e44a4c99671fb6jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('10', '尖椒炒肉', '30', '香辣鲜美尖椒炒肉食谱', '5', 'https://fuss10.elemecdn.com/6/29/78ca3fb8be955eb511eb6454995edjpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('11', '炒土豆丝', '15', '老少皆宜的家常菜', '4', 'https://fuss10.elemecdn.com/6/82/7de42cee8b0e635110298e00c3721jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('12', '西红柿炒蛋', '20', '经典搭配，百吃不腻，精选土鸡蛋，香气四溢', '4.2', 'https://fuss10.elemecdn.com/9/04/afbc0341c9351c558057126269f8cjpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('13', '红烧千叶豆腐', '15', '口味鲜香', '4.2', 'https://fuss10.elemecdn.com/6/41/bb0f56f3098b66d42d75f8592aa80jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('14', '家常炒肉片', '30', '香辣鲜美肉片辣椒食谱', '4.2', 'https://fuss10.elemecdn.com/6/f8/bcb2885565d006de1a9d617fe7b57jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('15', '红烧茄子', '25', '历史悠久的传统菜肴', '4.8', 'https://fuss10.elemecdn.com/9/86/d1101a232ab680dc23beb43ea6c76jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('16', '家常虎皮尖椒', '20', '鲜美可口的农家经典菜品，香辣可口', '4.8', 'https://fuss10.elemecdn.com/b/79/957ebe08a1c05da5eff582ba4c1b6jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('17', '家常豆腐', '15', '简单好吃的家常菜', '3.9', 'https://fuss10.elemecdn.com/5/1c/4e6920f2e37e187281caf6440d732jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('18', '芹菜牛肉丝', '25', '鲜香美味的美味私家菜', '3', 'https://fuss10.elemecdn.com/0/68/0a17ab02d3f297e911649d4fb53e4jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('19', '肝腰合炒', '20', '美味爽口，补肾益气', '3.2', 'https://fuss10.elemecdn.com/8/cc/6c75913ebc727d249079946390218jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('20', '五花肉', '28', '肉肉肉', null, null, '2');
+INSERT INTO `products` VALUES ('21', '五花肉', '28', '肉肉肉，肥肥肥，涨涨涨!!!!!!!!!!!!!!!23333', null, null, '2');
+INSERT INTO `products` VALUES ('22', '青椒皮蛋', '15', '鲜滑爽口，口味酸爽！！', null, '//fuss10.elemecdn.com/9/0c/2da5a8c783c064fbc6c538c82188ejpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '2');
+INSERT INTO `products` VALUES ('24', '青椒皮蛋', '18', '鲜滑爽口，口味酸爽！！', null, '//fuss10.elemecdn.com/9/0c/2da5a8c783c064fbc6c538c82188ejpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85', '1');
+INSERT INTO `products` VALUES ('25', '1', '1', '1', null, '11', '2');
+INSERT INTO `products` VALUES ('26', '1', '1', '1', null, '11', '2');
+INSERT INTO `user` VALUES ('1', 'joker', '123', '2019-01-10 17:28:51', '18428341353', '林荫中街熙和园', 'http://localhost:81/uploads/1547621922910_421623.jpg', '除了吃饭能让我主动给钱，其余免谈！！');
+INSERT INTO `user` VALUES ('4', '上帝之子', '123', '2019-01-10 19:14:31', '15208018211', '成都理工大学松林圆-2-245', 'http://localhost:81/uploads/1547605026969_067597.jpeg', '');
+INSERT INTO `user` VALUES ('5', '周玉森真6', '123', '2019-01-10 19:16:46', '19982116549', null, 'http://localhost:81/uploads/1547605026969_067597.jpeg', '');
+INSERT INTO `user` VALUES ('6', 'noovdread', '123', '2019-01-10 19:18:48', '17786592486', '成都理工大学', 'http://localhost:81/uploads/1547617433544_756163.jpeg', '<p></p><p>吃货的世界，你不懂</p>');
+INSERT INTO `user` VALUES ('7', 'joker', '123', '2019-01-10 19:39:53', '18629383359', null, 'http://localhost:81/uploads/1547605026969_067597.jpeg', '');
+INSERT INTO `user` VALUES ('8', 'xiebo', '123', '2019-01-15 17:17:46', '123', '成都理工', 'http://localhost:81/uploads/1547625184637_466565.jpg', '<p>456798</p><p><br></p>');
+INSERT INTO `usertalk` VALUES ('16', 'joker~hj-test', '<p>6666666666666623</p>', '2019-01-16 11:53:58', 'http://localhost:81/uploads/1547607883056_134484.jpg');
+INSERT INTO `usertalk` VALUES ('17', 'joker~hj-test', '<h1><span style=\"color: rgb(249, 150, 59); background-color: rgb(139, 170, 74);\">真好吃！！！！！！！！！！！！！！！！！！！！！！</span></h1>', '2019-01-16 12:03:34', 'http://localhost:81/uploads/1547607883056_134484.jpg');
+INSERT INTO `usertalk` VALUES ('18', 'joker~hj-test', '<h1><span style=\"background-color: rgb(194, 79, 74);\">nice</span></h1>', '2019-01-16 12:07:35', 'http://localhost:81/uploads/1547607883056_134484.jpg');
+INSERT INTO `usertalk` VALUES ('19', 'noovdread', '<p>环境不错，味道还行。</p>', '2019-01-16 13:43:05', 'http://localhost:81/uploads/1547605026969_067597.jpeg');
+INSERT INTO `usertalk` VALUES ('20', 'user', '<p>好吃不腻！！<img src=\"http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3c/pcmoren_wu_org.png\" alt=\"[污]\" data-w-e=\"1\"></p>', '2019-01-16 13:46:51', 'http://localhost:81/uploads/1547605026969_067597.jpeg');
+INSERT INTO `usertalk` VALUES ('21', 'joker', '<p>肉有点少，下次多加点！！</p>', '2019-01-16 13:55:41', 'http://localhost:81/uploads/1547607883056_134484.jpg');
+INSERT INTO `usertalk` VALUES ('22', 'xiebo', '<h2><span style=\"background-color: rgb(249, 150, 59);\">123345566888&nbsp;&nbsp;</span></h2><div><img src=\"http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/50/pcmoren_huaixiao_org.png\" alt=\"[坏笑]\" data-w-e=\"1\"><img src=\"http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3c/pcmoren_wu_org.png\" alt=\"[污]\" data-w-e=\"1\"><span style=\"background-color: rgb(249, 150, 59);\"><br></span></div>', '2019-01-16 15:59:58', 'http://localhost:81/uploads/1547625184637_466565.jpg');

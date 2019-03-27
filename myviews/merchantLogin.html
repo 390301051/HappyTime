@@ -1,0 +1,45 @@
+<% include ./common/head.html%>
+<!-- 首页,登录,注册  导航栏 -->
+		<div class="nav">
+			<a href="/" class="login"><img src="/img/indexlogo.png" ></a>
+			<!-- 注册的跳转路由在这里设置 -->
+			<p class="p-regist">没有账号,现在就去<a href="/" class="regist">回首页</a></p>
+		</div>
+		<!-- 首页,登录,注册  页面中间logo -->
+		<div class="info">
+			<img src="/img/admin.png" >
+		</div>
+<form class="layui-form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">账号</label>
+		<div class="layui-input-inline">
+			<input type="text" name="aname"  placeholder="请输入账号" autocomplete="off" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">密码</label>
+		<div class="layui-input-inline">
+			<input type="password" name="apasswd"  placeholder="请输入密码" autocomplete="off" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div>
+
+
+	<!-- <div class="layui-form-item">
+		<label class="layui-form-label">验证码</label>
+		<div class="layui-input-inline">
+			<input type="text" name="code" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+			<img src="" alt="">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div> -->
+
+
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button class="layui-btn adminlogin" type="button">登录</button>
+		</div>
+	</div>
+</form>
+<% include ./common/foot.html%>

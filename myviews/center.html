@@ -1,0 +1,97 @@
+<% include ./common/center-head.html%>
+<li><a href="/ucont?phonenum=<%= phonenum%>">首页</a></li>
+				<li><a href="">我的订单</a></li>
+			</ul>
+			<div class="head-user">
+				<a href="" class="head-user-text"><img src=<%= head%> class="layui-nav-img"><%= username%></a>
+
+				<ul class="head-brand">
+					<li><a href="">个人中心</a></li>
+					<li><a href="">我的地址</a></li>
+					<li><a href="/userLogin">退出登录</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="middle">
+			<ul class="article">
+				<li><a href="">个人中心</a></li>
+				<hr>
+				<li style="margin-top: 20px;">
+					我的订单
+					<a href="#">订单详情</a>
+				</li>
+				<hr>
+				<li>
+					我的资产
+					<a href="#">我的红包</a>
+					<a href="#">账户余额</a>
+					<a href="#">我的金币</a>
+				</li>
+				<hr>
+				<li>
+					我的资料
+					<a href="/pre">个人资料</a>
+					<a href="#">地址管理</a>
+				</li>
+			</ul>
+			<div class="section">
+				<div class="section-head">
+					<div class="section-head-info">
+						<img src=<%= head%> alt="">
+
+						<p>您好！<b><%= username%></b></p>
+						<p class="section-head-info-text">订餐了吗？提前订餐送的快！</p>
+					</div>
+					<ul>
+						<li><a href="">
+								<p class="section-head-title">我的红包</p>
+								<p class="section-head-red"><span>0</span>个</p>
+							</a></li>
+						<li><a href="">
+								<p class="section-head-title">我的金币</p>
+								<p class="section-head-green"><span>256</span>个</p>
+							</a></li>
+						<li style="border: 0;"><a href="">
+								<p class="section-head-title">账户余额</p>
+								<p class="section-head-orange"><span>8.20</span>元</p>
+							</a></li>
+					</ul>
+				</div>
+				<div class="section-middle">
+					<h3>订单</h3>
+					<hr>
+					<table class="layui-table">
+						<colgroup>
+							<col width="300">
+							<col width="100">
+							<col width="100">
+							<col width="150">
+							<col width="100">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>订单详情</th>
+								<th>备注信息</th>
+								<th>收货地址</th>
+								<th>下单时间</th>
+								<th>支付金额</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for(let i=0;i<orders.length;i++){ %>
+							<tr>
+								<td><%= decodeURIComponent(orders[i].pname)%></td>
+								<td>
+									<p class="box-info"><%= orders[i].tips%></p>
+								</td>
+								<td><%= orders[i].address%></td>
+								<td><%= new Date(orders[i].ordertime).toLocaleString() %></td>
+								<td><%= orders[i].oprice%>元</td>
+							</tr>
+							<%}%>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	<% include ./common/center-foot.html%>	

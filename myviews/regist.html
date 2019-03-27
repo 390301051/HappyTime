@@ -1,0 +1,41 @@
+<% include ./common/head.html%>
+<!-- 首页,登录,注册  导航栏 -->
+		<div class="nav">
+			<a href="/" class="login"><img src="/img/indexlogo.png" ></a>
+			<!-- 注册的跳转路由在这里设置 -->
+			<p class="p-regist">已有账号,去登录<a href="/gologin" class="regist">去登录</a></p> 
+		</div>
+		<!-- 首页,登录,注册  页面中间logo -->
+		<div class="info">
+			<img src="/img/regist.png" >
+		</div>
+<form class="layui-form">
+	<div class="layui-form-item">
+		<label class="layui-form-label">用户名</label>
+		<div class="layui-input-inline">
+			<input type="text" name="rname" required lay-verify="required" placeholder="请输入注册账号" autocomplete="off" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">手机号</label>
+		<div class="layui-input-inline">
+			<input type="number" name="phonenum" required lay-verify="required" placeholder="请输入11位注册手机号" autocomplete="off"
+			 class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">密码</label>
+		<div class="layui-input-inline">
+			<input type="password" name="rpasswd" required lay-verify="required" placeholder="请输入注册密码" autocomplete="off" class="layui-input">
+		</div>
+		<div class="layui-form-mid layui-word-aux H"></div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button type="button" class="layui-btn userregist">注册</button>
+		</div>
+	</div>
+</form>
+<% include ./common/foot.html%>

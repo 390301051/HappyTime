@@ -1,0 +1,110 @@
+<% include ./common/center-head.html%>
+<li><a href="/ucont?phonenum=<%= phonenum%>">首页</a></li>
+				<li><a href="">我的订单</a></li>
+			</ul>
+			<div class="head-user">
+				<a href="" class="head-user-text"><img src=<%= head%> class="layui-nav-img"><%= username%></a>
+
+				<ul class="head-brand">
+					<li><a href="">个人中心</a></li>
+					<li><a href="">我的地址</a></li>
+					<li><a href="/userLogin">退出登录</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="middle">
+			<ul class="article">
+				<li><a href="">个人中心</a></li>
+				<hr>
+				<li style="margin-top: 20px;">
+					我的订单
+					<a href="#">订单详情</a>
+				</li>
+				<hr>
+				<li>
+					我的资产
+					<a href="#">我的红包</a>
+					<a href="#">账户余额</a>
+					<a href="#">我的金币</a>
+				</li>
+				<hr>
+				<li>
+					我的资料
+					<a href="/pre">个人资料</a>
+					<a href="#">地址管理</a>
+				</li>
+			</ul>
+<div class="section" style="margin-top: 10px;">
+	<h3>订单详情</h3>
+	<hr>
+	<ul class="order-nav">
+		<li>订单已提交</li>
+		<li>商家已接单</li>
+		<li>等待送达</li>
+	</ul>
+	<div class="order-text">
+		<p>订单等待送达 <br>  <span>最迟22:00送达</span> </p>
+		<button>催促商家</button>
+	</div>
+
+	
+	<div class="order-tab">
+	
+	<div class="order-tab-head">
+		<img src="https://fuss10.elemecdn.com/6/ab/3dfa751233fb853fda548b3f5b4eejpeg.jpeg?imageMogr2/thumbnail/44x44/format/webp/quality/85" alt="">
+		<p>乐山钵钵鸡</p>
+		<P>订单号: 30556988235525</P>
+	</div>
+	
+	<div class="order-cn">
+		<div class="order-left">
+			
+		
+		<table class="layui-table">
+			<colgroup>
+				<col width="200">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>菜品</th>
+					<th>数量</th>
+					<th>小计(元)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% let arrpro=delname.split(","); %>
+				<% for(let i=0;i<arrpro.length;i++){%>
+				<% let exparr=arrpro[i].split("---"); %>
+				<tr>
+					<td><%= exparr[0] %></td>
+					<td><%= exparr[1] %></td>
+					<td><%= exparr[2] %></td>
+				</tr>
+				<%}%>
+			</tbody>
+		</table>
+		<div class="layui-input-block">
+			实际支付: <span><%= allprice%>元</span>
+			<button class="layui-btn payfor" type="button">去支付</button>
+		</div>
+		</div>
+		<div class="order-right">
+			<p>配送信息</p>
+			<p>配送方式：	<span>乐山钵钵鸡提供配送服务</span></p>
+			<p>送达时间: 	<span>尽快送出</span></p>
+			<p>联系人：	<span><%= username%>(<span>用户</span>)</span></p>
+			<p>联系电话: 	<span><%= phonenum%></span></p>
+			<p>收货地址：<input type="text" name="address" id="" value="<%= address%>" class="layui-input" placeholder="请填写收货地址" />
+			<span style="color: red;"></span>
+			</p>
+			
+			<p>发票信息：<span>无发票</span></p>
+			<p>备注：<input type="text" name="tips" id="" value="" class="layui-input" placeholder="如有特殊需要请备注" /></p>
+		</div>
+	</div>
+	
+	</div>
+</div>
+<% include ./common/center-foot.html%>

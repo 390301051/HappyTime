@@ -1,0 +1,77 @@
+<div class="foot">
+	<div class="foot-top">
+		<ul class="foot-top-nav">
+			<li>
+				用户帮助
+				<a href="">我的客服</a>
+			</li>
+			<li>商务合作
+				<a href="">我要加入</a>
+				<a href="">加盟指南</a>
+				<a href="">市场合作</a>
+				<a href="">开放平台</a>
+
+			</li>
+			<li>
+				关于我们
+				<a href="">自我介绍</a>
+				<a href="">加入我们</a>
+				<a href="">联系我们</a>
+				<a href="">规则中心</a>
+				<a href="">隐私政策</a>
+			</li>
+		</ul>
+		<div class="foot-connect">
+			<div class="foot-connect-left">
+				<p>24小时客服热线 : <a href="">123456</a></p>
+				<p>关注我们</p>
+			</div>
+			<div class="foot-connect-right">
+				<p>下载手机版</p>
+				<p>扫一扫,手机订餐更方便</p>
+			</div>
+		</div>
+	</div>
+
+	<p>
+		<a href="#">我要开店</a> |
+		<a href="#">联系我们</a> |
+		<a href="#">服务条款和协议</a> |
+		<a href="#">隐私条款</a> |
+		<a href="#">营业执照</a> |
+		<a href="#">加入我们</a> |
+		<a href="#">骑士配送</a> |
+		<a href="#">失信人员查询</a>
+	</p>
+	<p class="license">
+		互联网药品信息服务资格证书:<a href="#">(蜀)-经营性-2019-0011</a> |
+		增值电信业务许可证 : <a href="#">蜀xx-20190033</a> |
+		<a href="#">蜀ICP备 09007032</a> |
+		<a href="#">成都工商行政管理</a>Copyright ©2008-2018 成都皮皮虾信息科技有限公司, All Rights Reserved.
+	</p>
+
+</div>
+</body>
+<script src="/js/userLoginReg.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/shopcar.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/acontpage.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/per-data.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/layui/layui.js"></script>
+<script>
+	//注意：导航 依赖 element 模块，否则无法进行功能性操作
+	layui.use('element', function () {
+		var element = layui.element;
+	});
+	let brand = document.querySelector(".head-brand")
+	let nav = document.querySelector(".head-user");
+	nav.onmouseover = function () {
+		brand.style.display = 'block';
+	}
+	nav.onmouseleave = function () {
+		brand.style.display = 'none';
+	}
+</script>
+
+</html>

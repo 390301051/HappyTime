@@ -1,0 +1,104 @@
+<% include ./common/demo-head.html%>
+<li><a href="/ucont?phonenum=<%= phonenum%>">首页</a></li>
+				</ul>
+				<div class="head-login btn-group">
+					<ul class="layui-nav">
+						<li class="layui-nav-item">
+<style>
+.w-e-text-container {
+	height: 150px !important;
+}
+</style>
+<a href="/ucont"><img class="layui-nav-img" src=<%= head%>><%= username%></a>
+							<dl class="layui-nav-child">
+								<!-- 二级菜单 -->
+								<dd><a href="/ucont/center">个人中心</a></dd>
+								<dd><a href="">我的地址</a></dd>
+								<dd><a href="/">退出登录</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="head-info">
+					<div class="info-img">
+						<img src="/img/logo.png"
+						 alt="">
+					</div>
+					<p class="sname">开心食刻（校内食堂外卖服务）</p>
+					<p class="score">评分 : <a href="" style="color: yellow;font-size: 18px;">⭐⭐⭐⭐⭐</a></p>
+				</div>
+				<div class="introduce">
+					<div>
+						<span>起送价</span>
+						<p>15元</p>
+					</div>
+					<div>
+						<span>配送费</span>
+						<p>配送费¥2</p>
+					</div>
+					<div>
+						<span>平均送达速度</span>
+						<p>15分钟</p>
+					</div>
+				</div>
+			</div>
+		</div>
+<ul class="middle-nav">
+	<li><a href="/ucont?phonenum=<%= phonenum%>">所有商品</a></li>
+	<li><a href="/ucont/comment">评论</a></li>
+</ul>
+<hr>
+<div class="show">
+	<div class="goods">
+		<% for(let i=0;i<tlist.length;i++){%>
+		<div class="com">
+			<div class="com-head">
+				<img src=<%= tlist[i].head%> alt="">
+			</div>
+			<p class="com-name"><%= tlist[i].username%></p>
+			<div id="com-text"><%- tlist[i].about%> </div>
+			<p class="com-time"><%= new Date(tlist[i].talktimes).toLocaleString()%></p>
+		</div>
+		<%}%>
+	<div class="layui-form-item layui-form-text" style="width: 800px; margin-top: 100px;">
+				<label class="layui-form-label">评论</label>
+				<div class="layui-input-block">
+					 <div id="editor"></div>
+					<textarea style="display: none;" id="text1" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+					<div class="layui-form-mid layui-word-aux H"></div>
+				</div>
+			</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button type="button" class="layui-btn talkbtn">提交</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- 公告组件 -->
+	<div class="notice">
+		<div class="notice-text">
+			<h3>商家公告</h3>
+			<p>多款新品上线，请大家品尝后多多建议，祝愿大家身体安康，工作顺利。</p>
+		</div>
+		<p>配送说明：</p>
+		<p>配送费¥0.5</p>
+		<div class="notice-wor">
+			<p>商家原因导致订单取消，赔付代金券</p>
+			<p>该商户食品安全已由国泰产险承担，食品安全有保障</p>
+			<p>该商家支持开发票，请在下单时填写好发票抬头</p>
+		</div>
+	</div>
+
+
+<% include ./common/demo-foot.html%>
+<script type="text/javascript">
+        let E = window.wangEditor
+        // let editor = new E('#editor')
+        let editor = new E( document.getElementById('editor'));
+		let $text1 = document.getElementById('text1');
+        editor.customConfig.onchange = function (html) {
+            $text1.value=html;
+        }
+        editor.create()
+    </script>

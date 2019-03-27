@@ -1,0 +1,109 @@
+<% include ./common/center-head.html%>
+<li><a href="/ucont?phonenum=<%= phonenum%>">首页</a></li>
+				<li><a href="/ucont/center">我的订单</a></li>
+			</ul>
+			<div class="head-user">
+				<a href="" class="head-user-text"><img src=<%= head%> class="layui-nav-img"><%= username%></a>
+
+				<ul class="head-brand">
+					<li><a href="">个人中心</a></li>
+					<li><a href="">我的地址</a></li>
+					<li><a href="/userLogin">退出登录</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="middle">
+			<ul class="article">
+				<li><a href="">个人中心</a></li>
+				<hr>
+				<li style="margin-top: 20px;">
+					我的订单
+					<a href="#">订单详情</a>
+				</li>
+				<hr>
+				<li>
+					我的资产
+					<a href="#">我的红包</a>
+					<a href="#">账户余额</a>
+					<a href="#">我的金币</a>
+				</li>
+				<hr>
+				<li>
+					我的资料
+					<a href="">个人资料</a>
+					<a href="#">地址管理</a>
+				</li>
+			</ul>
+<style>
+	.layui-form-item {
+		height: 80px;
+		width: 800px;
+		display: flex;
+		align-items: center;
+	}
+	.toolbar {
+		border: 1px solid #ccc;
+	}
+	.text {
+		position: absolute;
+		top: 37px;
+		border: 1px solid #ccc;
+		height: 150px;
+		width: 731px;
+	}
+	.H {
+		color: red !important;
+	}
+</style>
+<div class="section">
+	<h3>个人资料</h3>
+	<hr>
+	<div class="per-data">
+		<form class="layui-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">用户名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="uname" class="layui-input" value=<%= username%> >
+				</div>
+				<div class="layui-form-mid layui-word-aux H"></div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">上传头像</label>
+				<div class="layui-input-inline">
+					<label class="dhead" for="head">
+						<img src=<%= head%> id="headimg">
+					</label>
+					<input type="file" name="uhead" id="head" style="display:none">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">个人简介</label>
+				<div class="layui-input-inline">
+					<div id="div1" class="toolbar"></div>
+					<div id="div2" class="text"><p><%- natur%></p></div>
+					<textarea id="text1" style="display: none;" value=''></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item" style="justify-content: center; position: absolute; top: 650px;">
+				<button class="layui-btn  layui-btn-normal prebtn" type="button">保存修改</button>
+			</div>
+		</form>
+	</div>
+</div>
+	<script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+	<script src="/js/per-data.js"></script>
+	<script type="text/javascript">
+		let E = window.wangEditor;
+				let editor1 = new E('#div1','#div2');
+				let text1 = document.querySelector('#text1');
+				let div2 =  document.querySelector('#div2');
+				editor1.customConfig.onchange = function(html) {
+					// 监控变化，同步更新到 textarea
+					text1.value = html;
+				};
+				editor1.customConfig.uploadImgServer = '/upload'
+				editor1.create();
+				// 初始化 textarea 的值
+				text1.value = editor1.txt.text();
+	</script>
+<% include ./common/center-foot.html%>

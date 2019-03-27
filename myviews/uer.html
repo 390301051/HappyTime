@@ -1,0 +1,104 @@
+<% include ./common/demo-head.html%>
+<li><a href="/ucont?phonenum=<%= phonenum%>">首页</a></li>
+				</ul>
+				<div class="head-login btn-group">
+					<ul class="layui-nav">
+						<li class="layui-nav-item">
+<a><img class="layui-nav-img" src=<%= head%>><%= username%></a>
+							<dl class="layui-nav-child">
+								<!-- 二级菜单 -->
+								<dd><a href="/ucont/center">个人中心</a></dd>
+								<dd><a href="">我的地址</a></dd>
+								<dd><a href="/">退出登录</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="head-info">
+					<div class="info-img">
+						<img src="/img/logo.png" alt="">
+					</div>
+					<p class="sname">开心食刻（校内食堂外卖服务）</p>
+					<p class="score">评分 : <a href="" style="color: yellow;font-size: 18px;">⭐⭐⭐⭐⭐</a></p>
+				</div>
+				<div class="introduce">
+					<div>
+						<span>起送价</span>
+						<p>15元</p>
+					</div>
+					<div>
+						<span>配送费</span>
+						<p>配送费¥2</p>
+					</div>
+					<div>
+						<span>平均送达速度</span>
+						<p>15分钟</p>
+					</div>
+				</div>
+			</div>
+		</div>
+<ul class="middle-nav">
+	<li><a href="/ucont?phonenum=<%= phonenum%>">所有商品</a></li>
+	<li><a href="/ucont/comment">评论</a></li>
+</ul>
+<hr>
+<div class="show">
+	<div class="goods">
+
+
+		<!-- 商品循环,在这 -->
+		<% for(var i=0;i<plist.length;i++){%>
+		<div class="box">
+			<!-- 图片信息 -->
+			<div class="box-img">
+				<img src=<%= plist[i].imgsrc%>>
+			</div>
+			<!-- 文字信息 -->
+			<div class="box-text addshopcar">
+				<p class="box-name"><%= plist[i].pname %></p>
+				<p class="box-info"><%= plist[i].pdescribe %></p>
+				<p class="box-score"><span>评分:<%= plist[i].grade %></span></p>
+				<p class="box-btn"><span>¥<%= plist[i].price %></span><a class="addcar" style="cursor: pointer;">加入购物车</a></p>
+			</div>
+		</div>
+		<%}%>
+
+	</div>
+	<!-- 公告组件 -->
+	<div class="notice">
+		<div class="notice-text">
+			<h3>商家公告</h3>
+			<p>多款新品上线，请大家品尝后多多建议，祝愿大家身体安康，工作顺利。</p>
+		</div>
+		<p>配送说明：</p>
+		<p>配送费¥2</p>
+		<div class="notice-wor">
+			<p>商家原因导致订单取消，赔付代金券</p>
+			<p>该商户食品安全已由国泰产险承担，食品安全有保障</p>
+			<p>该商家支持开发票，请在下单时填写好发票抬头</p>
+		</div>
+	</div>
+</div>
+<!-- 购物车组件, 当点击家务购物车时,此处使用循环 -->
+<div class="shopcart">
+	<div class="shopcart-head">购物车 <a class="clearcar" style="color: red; cursor: pointer;">清空</a></div><br><br>
+	<table class="layui-table">
+		<colgroup>
+			<col width="180">
+			<col width="100">
+			<col width="100">
+			<col width="100">
+		</colgroup>
+		<tbody>
+			<!-- 循环 -->
+			<!-- <tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a class="deletecar"></a></td>
+			</tr> -->
+		</tbody>
+	</table>
+</div>
+<div class="shopcart-foot"><a class="todel" style="cursor: pointer;">去结算</a></div>
+<% include ./common/demo-foot.html%>

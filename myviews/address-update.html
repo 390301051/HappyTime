@@ -1,0 +1,44 @@
+<% include ./common/center-head.html%>
+
+
+<div class="section" style="margin-top: 10px;">
+<form class="layui-form" action="">
+  <div class="layui-form-item">
+    <label class="layui-form-label">姓名</label>
+    <div class="layui-input-inline">
+      <input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">单选框</label>
+    <div class="layui-input-inline">
+      <input type="radio" name="sex" value="男" title="男" checked>男士
+      <input type="radio" name="sex" value="女" title="女">女士
+    </div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">位置</label>
+    <div class="layui-input-inline">
+      <input type="text" name="address" required  lay-verify="required" placeholder="请输入位置" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">详细位置</label>
+    <div class="layui-input-inline">
+      <input type="text" name="addre" required  lay-verify="required" placeholder="请输入详细位置" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">手机号</label>
+    <div class="layui-input-inline">
+      <input type="text" name="name" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-inline" style="margin-left: 200px;">
+      <button class="layui-btn">修改</button>
+    </div>
+  </div>
+</form>
+</div>
+<% include ./common/center-foot.html%>

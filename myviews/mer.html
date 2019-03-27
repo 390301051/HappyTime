@@ -1,0 +1,120 @@
+<% include ./common/demo-head.html%>
+<li><a href="/">首页</a></li>
+				</ul>
+				<div class="head-login btn-group">
+					<ul class="layui-nav">
+						<li class="layui-nav-item">
+<a href="/acont"><img class="layui-nav-img" src="/img/logo.png">admin</a>
+<dl class="layui-nav-child">
+	<!-- 二级菜单 -->
+	<dd><a href="/merchantLogin">退出登录</a></dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="head-info">
+	<div class="info-img">
+		<img src="/img/logo.png">
+	</div>
+	<p class="sname">开心食刻（校内食堂外卖服务）</p>
+	<p class="score">评分 : <a href="" style="color: yellow;font-size: 18px;">⭐⭐⭐⭐⭐</a></p>
+</div>
+<div class="introduce">
+	<div>
+		<span>起送价</span>
+		<p>15元</p>
+	</div>
+	<div>
+		<span>配送费</span>
+		<p>配送费¥2</p>
+	</div>
+	<div>
+		<span>平均送达速度</span>
+		<p>15分钟</p>
+	</div>
+</div>
+</div>
+</div>
+<ul class="middle-nav">
+	<li><a href="">所有商品</a></li>
+</ul>
+<hr>
+<div class="show">
+	<div class="goods">
+
+		<form class="layui-form CX" action="/acont" method="GET">
+			<div class="layui-inline">
+				<label class="layui-form-label" style="width: 100px;">菜品查询 :</label>
+				<div class="layui-input-inline" style="width: 200px;">
+					<input type="text" name="keywords" value="<%= keywords%>" class="layui-input">
+				</div>
+				<div class="layui-input-inline">
+					<input type="submit" class="layui-btn" name="submit" value="查询">
+				</div>
+			</div>
+			<a href="/acont/addp" class="layui-btn ">添加菜品</a>
+		</form>
+
+
+		<hr>
+		<table class="layui-table">
+
+			<thead>
+				<tr>
+					<th>菜品ID</th>
+					<th>菜品名称</th>
+					<th>价格</th>
+					<th>描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody class="prolist">
+				<%
+				let reg=new RegExp(keywords,"ig");
+				for (let i=0;i<prolist.length;i++){
+				%>
+				<tr>
+					<td class="CPID" align="center">
+						<%= prolist[i].pid%>
+					</td>
+					<td class="CP">
+						<%- prolist[i].pname.replace(reg, `<span class="H">${keywords}</span>`)%>
+
+					</td>
+					<td class="JG" align="center">
+						<%= prolist[i].price%>
+					</td>
+					<td>
+						<%= prolist[i].pdescribe%>
+					</td>
+					<td class="MS" align="center"><a href="###" class="delpro layui-btn" data-pid="<%= prolist[i].pid%>">删除</a>
+						<a class="layui-btn" href="/acont/updatep?pid=<%= prolist[i].pid%>" style="margin-left: 0px;">修改</a>
+					</td>
+				</tr>
+				<%}%>
+			</tbody>
+		</table>
+
+
+
+
+
+	</div>
+	<!-- 公告组件 -->
+	<div class="notice">
+		<div class="notice-text">
+			<h3>商家公告</h3>
+			<p>多款新品上线，请大家品尝后多多建议，祝愿大家身体安康，工作顺利。</p>
+		</div>
+		<p>配送说明：</p>
+		<p>配送费¥2</p>
+		<div class="notice-wor">
+			<p>商家原因导致订单取消，赔付代金券</p>
+			<p>该商户食品安全已由国泰产险承担，食品安全有保障</p>
+			<p>该商家支持开发票，请在下单时填写好发票抬头</p>
+		</div>
+	</div>
+</div>
+<!-- 购物车组件, 当点击加入购物车时,此处使用循环 -->
+
+<% include ./common/demo-foot.html%>
